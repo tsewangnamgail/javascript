@@ -1,3 +1,24 @@
+/*EXECUTION CONTEXT
+(i) fucntion dexecution context
+(ii) eval executin context
+
+-> memory creation phase 
+-> execution phase  (this)
+
+ex: let val1=10;
+    let val2=5;
+    function addnum9num1,num2{
+        let total=num1+num2;
+        return total;
+    }
+    let result1=addnum(num1,num2);  //-> total =15;
+    let result2=addnum(10,2)        //-> total =
+
+
+*/
+
+
+//CONTROL FLOW
 // if
 const isUserloggedIn = true
 const temperature = 41
