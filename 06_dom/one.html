@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>DOM learning</title>
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div >
+        <h1  id="title" class="heading">DOM learning on Chai aur code <span style="display: none;">test text</span></h1>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <input type="password" name="" id="">
+
+        <ul>
+            <li class="list-item">one</li>
+            <li class="list-item">two</li>
+            <li class="list-item">three</li>
+            <li class="list-item">four</li>
+        </ul>
+    </div>
+</body>
+</html>
+
+<!--
+window -> document -> html
+                       /\
+                      /  \
+                     /    \
+                head       body               
+-->
+
+
+<!--
+==============================
+ DOM SELECTION METHODS
+==============================
+
+document.getElementById("id")
+→ Selects ONE element by ID
+
+document.getElementsByClassName("class")
+→ Selects multiple elements by class (HTMLCollection)
+
+document.getElementsByTagName("tag")
+→ Selects multiple elements by tag name
+
+document.querySelector("cssSelector")
+→ Selects FIRST matching element
+
+document.querySelectorAll("cssSelector")
+→ Selects ALL matching elements (NodeList)
+
+
+==============================
+ DOM CONTENT METHODS
+==============================
+
+element.innerHTML
+→ Gets / sets HTML content
+
+element.innerText
+→ Gets / sets visible text only
+
+element.textContent
+→ Gets / sets all text (including hidden)
+
+
+==============================
+ DOM ATTRIBUTE METHODS
+==============================
+
+element.getAttribute("attr")
+→ Gets attribute value
+
+element.setAttribute("attr", "value")
+→ Sets attribute
+
+element.removeAttribute("attr")
+→ Removes attribute
+
+element.hasAttribute("attr")
+→ Checks if attribute exists
+
+
+==============================
+ DOM STYLE METHODS
+==============================
+
+element.style.property = "value"
+→ Inline CSS styling
+
+element.classList.add("class")
+→ Add class
+
+element.classList.remove("class")
+→ Remove class
+
+element.classList.toggle("class")
+→ Toggle class
+
+element.classList.contains("class")
+→ Check class exists
+
+
+==============================
+ DOM EVENT METHODS
+==============================
+
+element.addEventListener("event", function)
+→ Attach event
+
+element.removeEventListener("event", function)
+→ Remove event
+
+
+==============================
+ DOM CREATE / REMOVE METHODS
+==============================
+
+document.createElement("tag")
+→ Create new element
+
+document.createTextNode("text")
+→ Create text node
+
+parent.appendChild(child)
+→ Add element at end
+
+parent.prepend(child)
+→ Add element at start
+
+parent.removeChild(child)
+→ Remove child element
+
+element.remove()
+→ Remove element directly
+
+
+==============================
+ DOM TRAVERSING
+==============================
+
+element.parentElement
+→ Parent element
+
+element.children
+→ Child elements
+
+element.firstElementChild
+→ First child
+
+element.lastElementChild
+→ Last child
+
+element.nextElementSibling
+→ Next sibling
+
+element.previousElementSibling
+→ Previous sibling
+
+
+==============================
+ WINDOW / DOCUMENT
+==============================
+
+document.title
+→ Page title
+
+document.body
+→ Body element
+
+document.forms
+→ All forms
+
+document.links
+→ All links
+
+window.alert()
+→ Alert popup
+
+window.prompt()
+→ Input popup
+
+window.confirm()
+→ Confirm popup
+
+
+====================================================
+ forEach + DOM STYLING CHEAT SHEET
+====================================================
+
+const templist=document.querySelectorAll('li')
+
+BASIC forEach ON ELEMENTS
+-------------------------
+templist.forEach(function (l) {
+  l.style.backgroundColor = "green";
+});
+
+ARROW FUNCTION VERSION
+----------------------
+templist.forEach((l) => {
+  l.style.backgroundColor = "green";
+});
+
+
+COMMON STYLE PROPERTIES
+-----------------------
+l.style.color = "white";
+l.style.backgroundColor = "green";
+l.style.padding = "10px";
+l.style.margin = "5px";
+l.style.border = "2px solid black";
+l.style.borderRadius = "8px";
+l.style.fontSize = "18px";
+l.style.fontWeight = "bold";
+l.style.textAlign = "center";
+l.style.cursor = "pointer";
+
+
+HOVER EFFECT USING JS
+--------------------
+l.addEventListener("mouseenter", () => {
+  l.style.backgroundColor = "darkgreen";
+});
+
+l.addEventListener("mouseleave", () => {
+  l.style.backgroundColor = "green";
+});
+
+
+USING classList (BEST PRACTICE)
+-------------------------------
+l.classList.add("active-item");
+l.classList.remove("active-item");
+l.classList.toggle("active-item");
+l.classList.contains("active-item");
+
+
+CLICK TO TOGGLE STYLE
+---------------------
+l.addEventListener("click", () => {
+  l.classList.toggle("selected");
+});
+
+
+ALTERNATE STYLING (EVEN / ODD)
+------------------------------
+templist.forEach((l, index) => {
+  l.style.backgroundColor = index % 2 === 0 ? "green" : "blue";
+});
+
+
+FULL LI STYLING EXAMPLE
+-----------------------
+const templist = document.querySelectorAll("li");
+
+templist.forEach((li) => {
+  li.style.listStyle = "none";
+  li.style.backgroundColor = "green";
+  li.style.color = "white";
+  li.style.margin = "8px";
+  li.style.padding = "10px";
+  li.style.borderRadius = "5px";
+});
+
+
+IMPORTANT NOTES
+---------------
+forEach() works on:
+- NodeList (querySelectorAll)
+- Arrays
+
+forEach() does NOT work on:
+- HTMLCollection
+
+Convert HTMLCollection to Array:
+--------------------------------
+Array.from(elements).forEach((el) => {
+  // styling here
+});
+
+====================================================
+ END
+====================================================
+-->
+
+

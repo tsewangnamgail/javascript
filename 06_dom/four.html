@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur code | DOM</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    // Function to add a new language using innerHTML
+    // ⚠️ innerHTML is simple but less efficient and can be unsafe if input is not trusted
+    function addLanguage(langName){
+        const li = document.createElement('li');      // Create a new <li> element
+        li.innerHTML = `${langName}`                  // Set content using innerHTML
+        document.querySelector('.language')           // Select the <ul> element
+                .appendChild(li);                     // Append <li> to <ul>
+    }
+
+    // Adding languages using the normal method
+    addLanguage("python")
+    addLanguage("typescript")
+
+    // Optimized function to add a language
+    // ✅ Uses createTextNode (better performance & safer)
+    function addOptiLanguage(langName){
+        const li = document.createElement('li');      // Create a new <li>
+        li.appendChild(document.createTextNode(langName)) // Add text node
+        document.querySelector('.language')           // Select the <ul>
+                .appendChild(li);                     // Append <li>
+    }
+
+    // Adding language using optimized method
+    addOptiLanguage('golang')
+
+    // -------------------- EDITING ELEMENTS --------------------
+
+    // Select the second <li> element using CSS selector
+    const secondLang = document.querySelector("li:nth-child(2)")
+    console.log(secondLang);
+
+    // Replace the second <li> with a completely new <li>
+    const newli = document.createElement('li')
+    newli.textContent = "Mojo"
+    secondLang.replaceWith(newli)
+
+    // Edit the first <li> using outerHTML
+    // ⚠️ outerHTML replaces the entire element
+    const firstLang = document.querySelector("li:first-child")
+    firstLang.outerHTML = '<li>TypeScript</li>'
+
+    // -------------------- REMOVING ELEMENTS --------------------
+
+    // Select the last <li> and remove it from the DOM
+    const lastLang = document.querySelector('li:last-child')
+    lastLang.remove()
+</script>
+</html>
