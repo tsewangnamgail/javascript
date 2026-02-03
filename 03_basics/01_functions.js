@@ -1,4 +1,4 @@
-
+//FUNCTIONS
 function sayMyName(){
     console.log("H");
     console.log("I");
@@ -8,21 +8,23 @@ function sayMyName(){
     console.log("H");
 }
 
-// sayMyName()
+// sayMyName  //referance
+//sayMyName()  //execution
 
 // function addTwoNumbers(number1, number2){
 
 //     console.log(number1 + number2);
 // }
 
-function addTwoNumbers(number1, number2){
+//returning 
+function addTwoNumbers(number1, number2){  //->parameteres
 
     // let result = number1 + number2
     // return result
     return number1 + number2
 }
 
-const result = addTwoNumbers(3, 5)
+const result = addTwoNumbers(3, 5)  //(3,5)->argument
 
 // console.log("Result: ", result);
 
@@ -36,25 +38,26 @@ function loginUserMessage(username = "sam"){
 }
 
 // console.log(loginUserMessage("hitesh"))
-// console.log(loginUserMessage("hitesh"))
+// console.log(loginUserMessage("hitesh"))//-->overridden sam
 
 
-function calculateCartPrice(val1, val2, ...num1){
+//function with infinite paramerters
+function calculateCartPrice(val1, val2, ...num1){   //...(rest operator) give me in bundle
     return num1
 }
 
-// console.log(calculateCartPrice(200, 400, 500, 2000))
+// console.log(calculateCartPrice(200, 400, 500, 2000))  //[500,2000]   because val1->200 val2->300
 
 const user = {
     username: "hitesh",
     prices: 199
 }
 
-function handleObject(anyobject){
+function handleObject(anyobject){  //anyobject to pass any object
     console.log(`Username is ${anyobject.username} and price is ${anyobject.price}`);
 }
 
-// handleObject(user)
+// handleObject(user)  //error because of prices
 handleObject({
     username: "sam",
     price: 399
@@ -66,5 +69,5 @@ function returnSecondValue(getArray){
     return getArray[1]
 }
 
-// console.log(returnSecondValue(myNewArray));
-console.log(returnSecondValue([200, 400, 500, 1000]));
+// console.log(returnSecondValue(myNewArray));  //400
+console.log(returnSecondValue([200, 400, 500, 1000]));  //400
